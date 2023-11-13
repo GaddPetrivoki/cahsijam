@@ -1,0 +1,44 @@
+[gd_scene load_steps=7 format=3 uid="uid://dg5naqr12d6id"]
+
+[ext_resource type="Script" path="res://Unit.gd" id="1_va3g3"]
+[ext_resource type="Texture2D" uid="uid://v0pb5idfipus" path="res://angry.svg" id="2_c43vo"]
+[ext_resource type="Texture2D" uid="uid://bwmpdbklsxsaw" path="res://icon.svg" id="2_jd44r"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x4v3g"]
+size = Vector2(120, 120)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ftntq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_c43vo")
+}],
+"loop": true,
+"name": &"angry",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_jd44r")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8wp3j"]
+radius = 500.0
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+script = ExtResource("1_va3g3")
+
+[node name="UnitCollision" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_x4v3g")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_ftntq")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_8wp3j")

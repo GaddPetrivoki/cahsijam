@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://bvacl8dif86q3"]
+
+[ext_resource type="PackedScene" uid="uid://dg5naqr12d6id" path="res://unit.tscn" id="1_vhb8k"]
+[ext_resource type="PackedScene" uid="uid://boe4cqxb8lcpq" path="res://spawner.tscn" id="4_ht3jk"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="BadUnit" parent="." instance=ExtResource("1_vhb8k")]
+position = Vector2(675, 318)
+faction = "evil"
+
+[node name="GoodUnit" parent="." instance=ExtResource("1_vhb8k")]
+faction = "good"
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="SelectionBox" type="Control" parent="Node2D"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Camera2D" type="Camera2D" parent="Node2D"]
+
+[node name="Area2D" parent="." instance=ExtResource("4_ht3jk")]
+position = Vector2(424, 164)

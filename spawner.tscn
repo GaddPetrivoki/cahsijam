@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://boe4cqxb8lcpq"]
+
+[ext_resource type="Texture2D" uid="uid://cnfv64dxrxrp8" path="res://fac.svg" id="1_14rwv"]
+[ext_resource type="Script" path="res://spawner.gd" id="1_bqhrp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8myyt"]
+size = Vector2(164, 107)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2kj0o"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_14rwv")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Area2D" type="Area2D"]
+script = ExtResource("1_bqhrp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, 0.5)
+shape = SubResource("RectangleShape2D_8myyt")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.649886, 0.840812)
+sprite_frames = SubResource("SpriteFrames_2kj0o")
